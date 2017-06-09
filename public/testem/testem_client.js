@@ -363,6 +363,7 @@ function takeOverConsole() {
         args[i] = arguments[i];
       }
 
+      emit('console', { method: method, args: JSON.stringify(args) });
       if (Testem.handleConsoleMessage) {
         message = decycle(args, Testem.decycleDepth).join(' ');
         doDefault = Testem.handleConsoleMessage(message);
